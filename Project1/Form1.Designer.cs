@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dvgStudents = new DataGridView();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -42,18 +42,18 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dvgStudents).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dvgStudents
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(278, 3);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(510, 241);
-            dataGridView1.TabIndex = 0;
+            dvgStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dvgStudents.Location = new Point(278, 3);
+            dvgStudents.Name = "dvgStudents";
+            dvgStudents.RowHeadersWidth = 51;
+            dvgStudents.RowTemplate.Height = 29;
+            dvgStudents.Size = new Size(510, 241);
+            dvgStudents.TabIndex = 0;
             // 
             // label1
             // 
@@ -146,6 +146,7 @@
             button2.TabIndex = 11;
             button2.Text = "View Students";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -183,17 +184,17 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dvgStudents);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dvgStudents).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dvgStudents;
         private Label label1;
         private Label label2;
         private Label label3;
