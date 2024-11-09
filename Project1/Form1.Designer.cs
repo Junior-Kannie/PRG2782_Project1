@@ -40,6 +40,8 @@
             comboBox1 = new ComboBox();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -145,11 +147,31 @@
             button2.Text = "View Students";
             button2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            button3.Location = new Point(471, 268);
+            button3.Name = "button3";
+            button3.Size = new Size(127, 29);
+            button3.TabIndex = 12;
+            button3.Text = "Update Student";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(661, 268);
+            button4.Name = "button4";
+            button4.Size = new Size(127, 29);
+            button4.TabIndex = 13;
+            button4.Text = "Delete Student";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button4);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(comboBox1);
@@ -183,5 +205,7 @@
         private ComboBox comboBox1;
         private Button button1;
         private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }
