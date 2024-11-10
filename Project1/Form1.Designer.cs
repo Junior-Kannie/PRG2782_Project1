@@ -128,7 +128,6 @@
             txtCourse.Name = "txtCourse";
             txtCourse.Size = new Size(125, 28);
             txtCourse.TabIndex = 9;
-            //txtCourse.SelectedIndexChanged += txtCourse_SelectedIndexChanged;
             // 
             // button1
             // 
@@ -167,6 +166,7 @@
             button4.TabIndex = 13;
             button4.Text = "Delete Student";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Form1
             // 

@@ -12,6 +12,13 @@ namespace Project1
 {
     public partial class Form1 : Form
     {
+        //Defines the file path where we want to save the information
+        //private string fileName = "students.txt";
+        //public string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        //private string filePath = Path.Combine(folderPath, fileName);
+
+        private string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "students.txt");
+
         public Form1()
         {
             InitializeComponent();
@@ -54,10 +61,6 @@ namespace Project1
                     {
                         students.Rows.Add(parts[0], parts[1], int.Parse(parts[2]), parts[3]);
                     }
-                    else
-                    {
-                        MessageBox.Show($"Invalid data format in line: {line}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
 
                 dvgStudents.DataSource = students;
@@ -78,7 +81,7 @@ namespace Project1
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             //Gets the values from the text boxes
             string studentID = txtStudentID.Text;
@@ -88,11 +91,6 @@ namespace Project1
 
             //Displays the entered details in a message box temporarily
             MessageBox.Show($"Student ID: {studentID}\nName: {name}\nAge: {age}\nCourse: {course}", "Student Details");
-
-            //Defines the file path where we want to save the information
-            string fileName = "students.txt";
-            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string filePath = Path.Combine(folderPath, fileName);
 
             //Use StreamWriter to write data to a text file
             try
@@ -107,43 +105,53 @@ namespace Project1
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-        }
-        private void DeleteStudents(string studentId)
-        {
-            // Read all lines from students.txt into a list
-            var lines = File.ReadAllLines("students.txt").ToList();
 
-            // Remove the line that starts with the given Student ID
-            lines.RemoveAll(line => line.StartsWith(studentId + ","));
-
-            // Write the remaining lines back to students.txt
-            File.WriteAllLines("students.txt", lines);
         }
-        private void button4_Click(object sender, EventArgs e)
+
+        public void DeleteStudents(string studentId)
         {
+            if (File.Exists(filePath))
             {
-                // Check if any row is selected in the DataGridView
-                if (dvgStudents.SelectedRows.Count > 0)
+                var lines = File.ReadAllLines(filePath).ToList();
+                int initialCount = lines.Count;
+
+                // Attempt to remove the specified line
+                lines.RemoveAll(line => line.StartsWith(studentId + ","));
+
+                if (lines.Count < initialCount) // Check if any lines were removed
                 {
-                    // Get the Student ID from the selected row's first cell
-                    string studentId = dvgStudents.SelectedRows[0].Cells[0].Value.ToString();
-
-                    // Call the DeleteStudent method with the selected Student ID
-                    DeleteStudents(studentId);
-
-                    // Reload the DataGridView to reflect the changes
-                    LoadStudents();
-
-                    // Optional: Show a message indicating successful deletion
+                    File.WriteAllLines(filePath, lines);
                     MessageBox.Show("Student record deleted successfully.");
                 }
                 else
                 {
-                    // Inform the user to select a student if no row is selected
-                    MessageBox.Show("Please select a student to delete.");
+                    MessageBox.Show("No matching student record found to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            else
+            {
+                MessageBox.Show("students.txt file not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (dvgStudents.SelectedRows.Count > 0)
+            {
+                string studentId = dvgStudents.SelectedRows[0].Cells[0].Value.ToString();
+
+                // Confirm deletion
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this student record?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteStudents(studentId);
+                    LoadStudents(); // Reload DataGridView to reflect changes
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a student to delete.");
+            }
         }
     }
 }
