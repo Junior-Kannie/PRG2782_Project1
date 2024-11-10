@@ -69,12 +69,6 @@ namespace Project1
         private void button1_Click(object sender, EventArgs e)
         {
         
-        public Form1()
-        {
-          InitializeComponent();
-        }
-
-            private void btnSave_Click(object sender, EventArgs e)
             {
                 // Gets the values from the text boxes
                 string studentID = txtStudentID.Text;
