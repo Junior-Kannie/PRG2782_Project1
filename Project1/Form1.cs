@@ -53,43 +53,6 @@ namespace Project1
                 MessageBox.Show("students.txt file not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        
-        public Form1()
-        {
-          InitializeComponent();
-        }
-
-            private void btnSave_Click(object sender, EventArgs e)
-            {
-                // Gets the values from the text boxes
-                string studentID = txtStudentID.Text;
-                string name = txtName.Text;
-                string age = txtAge.Text;
-                string course = txtCourse.Text;
-
-                // Displays the entered details in a message box temporarily
-                MessageBox.Show($"Student ID: {studentID}\nName: {name}\nAge: {age}\nCourse: {course}", "Student Details");
-
-                // Clears text boxes after saving (optional)
-                txtStudentID.Clear();
-                txtName.Clear();
-                txtAge.Clear();
-                txtCourse.Clear();
-            }
-        }
     }
 }
     
