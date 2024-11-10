@@ -2,6 +2,8 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Data;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Xml.Linq;
 
 
 namespace Project1
@@ -83,11 +85,28 @@ namespace Project1
                 // Displays the entered details in a message box temporarily
                 MessageBox.Show($"Student ID: {studentID}\nName: {name}\nAge: {age}\nCourse: {course}", "Student Details");
 
-                // Clears text boxes after saving (optional)
-                txtStudentID.Clear();
-                txtName.Clear();
-                txtAge.Clear();
-                txtCourse.Clear();
+        
+            }
+
+            // Define the file path where we want to save the information
+            string filePath = @"C:\Users\User\source\repos\PRG2782_Project1\Project1\StudentsInfo\txt";
+
+            // Use StreamWriter to write data to a text file
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true)) // true for appending data
+                {
+                    writer.WriteLine("StudentID: " + txtStudentID);
+                    writer.WriteLine("Name: " + txtName);
+                    writer.WriteLine("Age: " + txtAge);
+                    writer.WriteLine("Course: " + txtCourse);
+                    writer.WriteLine("---------------------------");
+                }
+                MessageBox.Show("Information saved successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
     }
