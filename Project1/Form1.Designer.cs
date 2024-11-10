@@ -128,6 +128,7 @@
             txtCourse.Name = "txtCourse";
             txtCourse.Size = new Size(125, 28);
             txtCourse.TabIndex = 9;
+            //txtCourse.SelectedIndexChanged += txtCourse_SelectedIndexChanged;
             // 
             // button1
             // 

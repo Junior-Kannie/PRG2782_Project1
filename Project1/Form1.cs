@@ -5,6 +5,7 @@ using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.VisualBasic.Devices;
 
 
 namespace Project1
@@ -14,6 +15,16 @@ namespace Project1
         public Form1()
         {
             InitializeComponent();
+            ComboBoxAdd();
+        }
+        public void ComboBoxAdd()
+        {
+            txtCourse.Items.Add("Maths");
+            txtCourse.Items.Add("Science");
+            txtCourse.Items.Add("English");
+            txtCourse.Items.Add("History");
+            txtCourse.Items.Add("Geography");
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -69,33 +80,24 @@ namespace Project1
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
-            {
-                // Gets the values from the text boxes
-                string studentID = txtStudentID.Text;
-                string name = txtName.Text;
-                string age = txtAge.Text;
-                string course = txtCourse.Text;
+            //Gets the values from the text boxes
+            string studentID = txtStudentID.Text;
+            string name = txtName.Text;
+            string age = txtAge.Text;
+            string course = txtCourse.Text;
 
-                // Displays the entered details in a message box temporarily
-                MessageBox.Show($"Student ID: {studentID}\nName: {name}\nAge: {age}\nCourse: {course}", "Student Details");
+            //Displays the entered details in a message box temporarily
+            MessageBox.Show($"Student ID: {studentID}\nName: {name}\nAge: {age}\nCourse: {course}", "Student Details");
 
-        
-            }
+            //Defines the file path where we want to save the information
+            string filePath = @"C:\Users\User\source\repos\PRG2782_Project1\Project1\StudentsInfo\StudentsInfo.txt";
 
-            // Define the file path where we want to save the information
-            string filePath = @"C:\Users\User\source\repos\PRG2782_Project1\Project1\StudentsInfo\txt";
-
-            // Use StreamWriter to write data to a text file
+            //Use StreamWriter to write data to a text file
             try
             {
-                using (StreamWriter writer = new StreamWriter(filePath, true)) // true for appending data
+                using (StreamWriter writer = new StreamWriter(filePath, true)) // true for the current data
                 {
-                    writer.WriteLine("StudentID: " + txtStudentID);
-                    writer.WriteLine("Name: " + txtName);
-                    writer.WriteLine("Age: " + txtAge);
-                    writer.WriteLine("Course: " + txtCourse);
-                    writer.WriteLine("---------------------------");
+                    writer.WriteLine($"{studentID}, {name}, {age}, {course}");
                 }
                 MessageBox.Show("Information saved successfully!");
             }
@@ -106,5 +108,5 @@ namespace Project1
         }
     }
 }
-    
+
 
