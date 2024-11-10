@@ -113,7 +113,6 @@
             txtName.Name = "txtName";
             txtName.Size = new Size(125, 27);
             txtName.TabIndex = 7;
-            //txtName.TextChanged += textBox2_TextChanged;
             // 
             // txtAge
             // 
@@ -121,7 +120,6 @@
             txtAge.Name = "txtAge";
             txtAge.Size = new Size(125, 27);
             txtAge.TabIndex = 8;
-            //txtAge.TextChanged += textBox3_TextChanged;
             // 
             // txtCourse
             // 
@@ -139,7 +137,7 @@
             button1.TabIndex = 10;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = true;
-            // button1.Click += button1_Click;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
