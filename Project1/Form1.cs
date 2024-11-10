@@ -24,6 +24,7 @@ namespace Project1
             txtCourse.Items.Add("English");
             txtCourse.Items.Add("History");
             txtCourse.Items.Add("Geography");
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -76,8 +77,6 @@ namespace Project1
         {
 
         }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {

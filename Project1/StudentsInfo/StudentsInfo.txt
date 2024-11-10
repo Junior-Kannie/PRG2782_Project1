@@ -1,14 +1,8 @@
-StudentID: 101
-Name: Sai
-Age: 20
-Course: MATHS
----------------------------
-StudentID: 102
-Name: Gov
-Age: 21
-Course: STATS
----------------------------
-StudentID: 225
----------------------------
-332, Cam, 25, Science
----------------------------
+
+101, Sai, 20, Science
+102, Junes, 22, English
+101, Sai, 20, Maths
+102, Junes, 20, History
+222, Sai, 20, Maths
+222, Sa, 20, English
+555, Cameron, 25, Geography
