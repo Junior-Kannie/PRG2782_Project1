@@ -106,7 +106,42 @@ namespace Project1
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+        private void DeleteStudents(string studentId)
+        {
+            // Read all lines from students.txt into a list
+            var lines = File.ReadAllLines("students.txt").ToList();
+
+            // Remove the line that starts with the given Student ID
+            lines.RemoveAll(line => line.StartsWith(studentId + ","));
+
+            // Write the remaining lines back to students.txt
+            File.WriteAllLines("students.txt", lines);
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            {
+                // Check if any row is selected in the DataGridView
+                if (dvgStudents.SelectedRows.Count > 0)
+                {
+                    // Get the Student ID from the selected row's first cell
+                    string studentId = dvgStudents.SelectedRows[0].Cells[0].Value.ToString();
+
+                    // Call the DeleteStudent method with the selected Student ID
+                    DeleteStudents(studentId);
+
+                    // Reload the DataGridView to reflect the changes
+                    LoadStudents();
+
+                    // Optional: Show a message indicating successful deletion
+                    MessageBox.Show("Student record deleted successfully.");
+                }
+                else
+                {
+                    // Inform the user to select a student if no row is selected
+                    MessageBox.Show("Please select a student to delete.");
+                }
+            }
+
+        }
     }
 }
-
-
