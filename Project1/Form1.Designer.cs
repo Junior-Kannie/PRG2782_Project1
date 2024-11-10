@@ -34,10 +34,10 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            comboBox1 = new ComboBox();
+            txtStudentID = new TextBox();
+            txtName = new TextBox();
+            txtAge = new TextBox();
+            txtCourse = new ComboBox();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -100,34 +100,36 @@
             label5.TabIndex = 5;
             label5.Text = "Course";
             // 
-            // textBox1
+            // txtStudentID
             // 
-            textBox1.Location = new Point(129, 54);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 6;
+            txtStudentID.Location = new Point(129, 54);
+            txtStudentID.Name = "txtStudentID";
+            txtStudentID.Size = new Size(125, 27);
+            txtStudentID.TabIndex = 6;
             // 
-            // textBox2
+            // txtName
             // 
-            textBox2.Location = new Point(129, 89);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 7;
+            txtName.Location = new Point(129, 89);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(125, 27);
+            txtName.TabIndex = 7;
+            txtName.TextChanged += textBox2_TextChanged;
             // 
-            // textBox3
+            // txtAge
             // 
-            textBox3.Location = new Point(129, 128);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 8;
+            txtAge.Location = new Point(129, 128);
+            txtAge.Name = "txtAge";
+            txtAge.Size = new Size(125, 27);
+            txtAge.TabIndex = 8;
+            txtAge.TextChanged += textBox3_TextChanged;
             // 
-            // comboBox1
+            // txtCourse
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(129, 163);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(125, 28);
-            comboBox1.TabIndex = 9;
+            txtCourse.FormattingEnabled = true;
+            txtCourse.Location = new Point(129, 163);
+            txtCourse.Name = "txtCourse";
+            txtCourse.Size = new Size(125, 28);
+            txtCourse.TabIndex = 9;
             // 
             // button1
             // 
@@ -137,6 +139,7 @@
             button1.TabIndex = 10;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -175,10 +178,10 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtCourse);
+            Controls.Add(txtAge);
+            Controls.Add(txtName);
+            Controls.Add(txtStudentID);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -200,10 +203,10 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private ComboBox comboBox1;
+        private TextBox txtStudentID;
+        private TextBox txtName;
+        private TextBox txtAge;
+        private ComboBox txtCourse;
         private Button button1;
         private Button button2;
         private Button button3;
