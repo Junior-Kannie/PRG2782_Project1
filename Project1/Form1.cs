@@ -83,21 +83,23 @@ namespace Project1
             //Gets the values from the text boxes
             string studentID = txtStudentID.Text;
             string name = txtName.Text;
-            string age = txtAge.Text;
+            int age = Convert.ToInt32(txtAge.Text);
             string course = txtCourse.Text;
 
             //Displays the entered details in a message box temporarily
             MessageBox.Show($"Student ID: {studentID}\nName: {name}\nAge: {age}\nCourse: {course}", "Student Details");
 
             //Defines the file path where we want to save the information
-            string filePath = @"C:\Users\User\source\repos\PRG2782_Project1\Project1\StudentsInfo\StudentsInfo.txt";
+            string fileName = "students.txt";
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filePath = Path.Combine(folderPath, fileName);
 
             //Use StreamWriter to write data to a text file
             try
             {
                 using (StreamWriter writer = new StreamWriter(filePath, true)) // true for the current data
                 {
-                    writer.WriteLine($"{studentID}, {name}, {age}, {course}");
+                    writer.WriteLine($"{studentID},{name},{age},{course}");
                 }
                 MessageBox.Show("Information saved successfully!");
             }
