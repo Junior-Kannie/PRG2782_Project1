@@ -69,7 +69,7 @@ namespace Project1
         
         public Form1()
         {
-           InitializeComponent();
+          InitializeComponent();
         }
 
             private void btnSave_Click(object sender, EventArgs e)
